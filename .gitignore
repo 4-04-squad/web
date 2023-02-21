@@ -28,6 +28,9 @@ coverage
 *.sw?
 
 HEAD
+COMMIT_EDITMSG
+FETCH_HEAD
+ORIG_HEAD
 config
 description
 hooks/
