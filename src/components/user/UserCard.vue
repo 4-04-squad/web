@@ -1,25 +1,31 @@
 <template>
     <div :class="`user-card grid ${full}`">
-       <div :class="`column user-card__avatar ${size}`">
-            <img :src="user.avatar" :alt="user.pseudo" />
-            <div :class="`user-card__status ${user.status}`"></div>
-       </div>
-       <div class="column user-card__details">
-            <h3>{{ user.pseudo }} <span>{{ info }}</span></h3>
-            <p>{{ preview }}</p>
-       </div>
+      <a href="ROUTE NAME HERE">
+        <div :class="`column user-card__avatar ${size}`">
+        <img :src="user.avatar" :alt="user.pseudo" />
+        <div :class="`user-card__status ${user.status.toLocaleLowerCase()}`"></div>
+      </div>
+      </a>
+      <div class="column user-card__details">
+        <h3>{{ user.pseudo }} <span>{{ info }}</span></h3>
+        <p>{{ preview }}</p>
+        <p>Full name: {{ user.firstName }} {{ user.lastName }}</p>
+        <p>Email: {{ user.email }}</p>
+      </div>
     </div>
-</template>
+  </template>
+  
   
 <script lang="ts">
+import type { UserInterface } from '@/interfaces/user.interface';
 import { defineComponent } from 'vue'
 
 export default defineComponent({
     name: 'UserCard',
     props: {
-        user: {
-            type: Object,
-            required: true
+        user : {
+            type: Object as () => UserInterface,
+            default: null
         },
         full: {
             type: String,
@@ -37,7 +43,7 @@ export default defineComponent({
             type: String,
             default: ''
         }
-    }
+    },
 })
 
 </script>
