@@ -6,7 +6,8 @@ $grid: $global-grid;
 }
 
 main {
-    // rules
+    grid-area: main;
+    height: 100vh;
 }
 
 .row {

@@ -1,17 +1,19 @@
 <template>
-  <div class="auth-layout">
-    <div class="auth-layout__container">
-      <div class="auth-layout__content">
-        <router-view />
+  <main class="main-page-content">
+    <div class="auth-layout main-page-content">
+      <div class="auth-layout__container">
+        <div class="auth-layout__content">
+          <router-view />
+        </div>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-    name: 'AuthLayout',  
+  name: 'AuthLayout',
 })
 </script>

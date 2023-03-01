@@ -1,5 +1,4 @@
 <template>
-  <AuthLayout>
     <div id="page-login">
       <button class="login-btn" @click="logout" v-if="userStore.user">
         se deconnecter
@@ -8,14 +7,12 @@
         se connecter
       </button>
     </div>
-  </AuthLayout>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import axios from 'axios'
 import { useUserStore } from '@/stores/user'
-import AuthLayout from '@/views/auth/AuthLayout.vue'
 import type { UserInterface } from '@/interfaces/user.interface'
 
 export default defineComponent({
