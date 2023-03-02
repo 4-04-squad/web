@@ -19,7 +19,7 @@
       <RouterLink :to="{ name: 'chats' }" class="link">
         <MessageIcon />
       </RouterLink>
-      <RouterLink :to="{ name: 'users' }" class="link">
+      <RouterLink :to="{ name: 'users-all' }" class="link">
         <UsersIcon />
       </RouterLink>
     </nav>
@@ -52,6 +52,8 @@ import {
 } from "@/components/icons";
 import { useUserStore } from "@/stores/user";
 import axios from "axios";
+import router from "@/router";
+import type { UserInterface } from "@/interfaces/user.interface";
 
 export default defineComponent({
   name: "Header",
@@ -77,7 +79,7 @@ export default defineComponent({
   },
   methods: {
     async login() {
-      const token = import.meta.env.VUE_APP_FORTY_TWO_CLIENT_ID;
+      const token = import.meta.env.VITE_APP_FORTY_TWO_CLIENT_ID;
       const callbackUrl = "http://localhost:3001/auth/login/callback";
       const redirectUrl = `https://api.intra.42.fr/oauth/authorize?client_id=${token}&redirect_uri=${callbackUrl}&response_type=code`;
       const popup = window.open(redirectUrl, "_blank", "height=600,width=600");
@@ -100,7 +102,7 @@ export default defineComponent({
             // set the user in the store
             this.userStore.setUser(res.data.user as UserInterface);
             if (this.userStore.user) {
-              console.log("User is logged in" + this.userStore.user.pseudo);
+              console.log("User is logged in " + this.userStore.user.pseudo);
             }
           })
           .catch((err) => {
@@ -115,11 +117,15 @@ export default defineComponent({
       if (this.userStore.user) {
         try {
           const response = await axios
-            .get("http://localhost:3001/auth/signout/" + this.userStore.user.id)
+          .get("http://localhost:3001/auth/signout/" + this.userStore.user.id, {
+            withCredentials: true,
+          })
             .then((res) => {
               this.userStore.clearUser();
+              console.log(res)
               if (!this.userStore.user) {
                 console.log("User is logged out");
+                router.push({ path: '/login' })
               }
             })
             .catch((err) => {

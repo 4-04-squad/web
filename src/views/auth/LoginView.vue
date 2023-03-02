@@ -24,7 +24,7 @@ export default defineComponent({
   },
   methods: {
     async login() {
-      const token = import.meta.env.VUE_APP_FORTY_TWO_CLIENT_ID;
+      const token = import.meta.env.VITE_APP_FORTY_TWO_CLIENT_ID;
       const callbackUrl = "http://localhost:3001/auth/login/callback";
       const redirectUrl = `https://api.intra.42.fr/oauth/authorize?client_id=${token}&redirect_uri=${callbackUrl}&response_type=code`;
       const popup = window.open(redirectUrl, "_blank", "height=600,width=600");
@@ -62,7 +62,9 @@ export default defineComponent({
       if (this.userStore.user) {
         try {
           const response = await axios
-            .get("http://localhost:3001/auth/signout/" + this.userStore.user.id)
+            .get("http://localhost:3001/auth/signout/" + this.userStore.user.id, {
+            withCredentials: true,
+          })
             .then((res) => {
               this.userStore.clearUser();
               if (!this.userStore.user) {

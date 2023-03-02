@@ -9,77 +9,6 @@ main {
   height: 100vh;
 }
 
-.main-game-layout {
-  display: grid;
-  height: 100vh;
-  max-height: 100vh;
-  grid-template-columns: 0.1fr 2fr;
-  grid-template-areas: "header main";
-
-  .main-page-content  {
-    margin: 1rem;
-}
-
-
-  @include bp($desktop, max) {
-    grid-template-areas:
-      "main"
-      "header header";
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr 120px;
-
-    
-    .main-nav,
-    .main-header {
-        flex-direction: row;
-    }
-
-    .main-nav {
-        &--login {
-            .grid {
-                grid-gap: 0;
-            }
-        }
-
-        .toggle-switch {
-            margin-top: 0;
-        }
-
-        .link {
-            margin-bottom: 0;
-        }
-    }
-  }
-
-  @include bp($small, max) {
-    grid-template-areas:
-      "main main"
-      "header header";
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 100px;
-
-    .main-sidebar {
-        display: none;
-    }
-
-    .main-nav {
-        &--login {
-            display: none;
-        }
-
-        &--link {
-            justify-content: center;
-            align-content: center;
-            width: 100%;
-        }
-
-        &--settings {
-            display: none;
-        }
-    }
-  }
-}
-
 .main-layout {
   display: grid;
   height: 100vh;
@@ -147,6 +76,19 @@ main {
         }
     }
   }
+}
+
+.main-game-layout {
+  display: grid;
+  height: 100vh;
+  max-height: 100vh;
+  grid-template-columns: 0.1fr 2fr;
+  grid-template-areas: "header main";
+
+  .main-page-content  {
+    margin-right: 1rem;
+  }
+
 }
 
 .main-header {
