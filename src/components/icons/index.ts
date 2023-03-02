@@ -7,6 +7,7 @@ import SunIcon from "./svg/SunIcon.vue";
 import MessageIcon from "./svg/MessageIcon.vue";
 import GlobeIcon from "./svg/GlobeIcon.vue";
 import GameIcon from "./svg/GameIcon.vue";
+import UsersIcon from "./svg/UsersIcon.vue";
 
 export {
   HomeIcon,
@@ -18,4 +19,5 @@ export {
   MessageIcon,
   GlobeIcon,
   GameIcon,
+  UsersIcon,
 };

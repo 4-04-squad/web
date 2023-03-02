@@ -19,6 +19,9 @@
       <RouterLink :to="{ name: 'chats' }" class="link">
         <MessageIcon />
       </RouterLink>
+      <RouterLink :to="{ name: 'users' }" class="link">
+        <UsersIcon />
+      </RouterLink>
     </nav>
     <nav class="main-nav main-nav--settings">
       <RouterLink :to="{ name: 'about' }" class="link">
@@ -45,6 +48,7 @@ import {
   MessageIcon,
   GlobeIcon,
   GameIcon,
+  UsersIcon,
 } from "@/components/icons";
 import { useUserStore } from "@/stores/user";
 import axios from "axios";
@@ -62,6 +66,7 @@ export default defineComponent({
     MessageIcon,
     GlobeIcon,
     GameIcon,
+    UsersIcon,
   },
   setup() {
     const userStore = useUserStore();
