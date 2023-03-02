@@ -1,7 +1,7 @@
 <template>
-  <div class="auth-layout main-page-content">
-    <div class="auth-layout__container">
-      <div class="auth-layout__content">
+  <div class="games-layout main-page-content">
+    <div class="games-layout__container">
+      <div class="games-layout__content">
         <router-view />
       </div>
     </div>
@@ -12,6 +12,6 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "AuthLayout",
+  name: "GamesLayout",
 });
 </script>

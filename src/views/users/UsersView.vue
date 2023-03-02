@@ -1,12 +1,11 @@
 <template>
-  <div id="page-profile">
-    </div>
+  <div id="page-profile"></div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
 
 export default defineComponent({
-    name: 'UsersProfileView',
-})
+  name: "UsersProfileView",
+});
 </script>

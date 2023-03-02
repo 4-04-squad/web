@@ -1,0 +1,28 @@
+// Light theme
+$light-theme: (
+  primary-color: #5061f9,
+  secondary-color: #ffffff,
+  border-color: #edeff6,
+  bg-color: #e1e6f1,
+  text-color: #2c303d,
+  svg-color: #9EA1AC,
+  accent-color: #fb602f,
+  danger-color: #FD6E87,
+  warning-color: #fb602f,
+  success-color: #11bdb3,
+);
+
+// Dark theme
+$dark-theme: (
+  primary-color: #5061f9,
+  secondary-color: #2c2d31,
+  border-color: #36373a,
+  bg-color: #242528,
+  text-color: #f4f4f4,
+  svg-color: #9EA1AC,
+  accent-color: #fb602f,
+  danger-color: #FD6E87,
+  warning-color: #fb602f,
+  success-color: #11bdb3,
+);
+

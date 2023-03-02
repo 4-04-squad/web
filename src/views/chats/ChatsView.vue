@@ -1,13 +1,11 @@
 <template>
-  <div id="page-home" class="main-page-content">
-    <h1>Home</h1>
-  </div>
+  <div id="page-chats"></div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "HomeView",
+  name: "ChatsView",
 });
 </script>

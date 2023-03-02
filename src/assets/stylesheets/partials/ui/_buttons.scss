@@ -13,3 +13,50 @@
         background-color: $color;
     }
 }
+
+.toggle-switch {
+    display: inline-block;
+    position: relative;
+    width: 48px;
+    height: 27.3px;
+    border-radius: 13.6px;
+    background-color: var(--border-color);
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .toggle-switch-inner {
+    position: absolute;
+    top: 1.8px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 1.6px 3.2px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+  }
+  
+  .toggle-switch-switch {
+    position: absolute;
+    top: 1.8px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 1.6px 3.2px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+  }
+  
+  .toggle-switch.checked {
+    background-color: var(--border-color);
+  }
+  
+  .toggle-switch.checked .toggle-switch-inner {
+    transform: translateX(20.8px);
+  }
+  
+  .toggle-switch.checked .toggle-switch-switch {
+    transform: translateX(20.8px);
+  }

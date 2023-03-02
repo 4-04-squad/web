@@ -1,32 +1,62 @@
-nav.main-nav {
-    & > ul {
-        display: flex;
-        & > li {
-            a {
-                display: inline-block;
-                padding: 0.5em 1em;
-            }
-            // if submenu
-            & > ul.sub-menu {
-                li {
-                    a {
-                        // rules...
-                    }
-                }
-            }
-        }
+.main-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .login,
+    .router-link-active,
+    .router-link-exact-active {
+      background-color: var(--border-color);
+      border-radius: $radius-sm;
+
+      &.user {
+        background-color: transparent;
+      }
+
+      svg {
+        stroke: var(--text-color) !important;
+      }
     }
-    @include bp($tablet) {
-        position: fixed;
-        top: 2em;
-        left: 0;
-        width: 100%;
-        opacity: 0;
-        transform: translate3d(0, -100%, 0);
-        transition: all 0.3s $ease;
-        .nav_open & {
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
-        }
+
+    .login {
+      background-color: var(--primary-color);
+      border-radius: $radius-sm;
+      padding: 0.5rem;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      svg {
+        stroke: #f4f4f4 !important;
+      }
+    }
+
+    .link {
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
+      &:hover {
+        opacity: 0.8;
+      }
+
+      svg {
+        stroke: var(--svg-color);
+      }
+    }
+
+    &--login {
+      justify-content: flex-start;
+    }
+
+    &--link {
+      justify-content: center;
+    }
+
+    &--settings {
+      justify-content: flex-end;
+
+      .toggle-switch {
+        margin-top: 1rem;
+      }
     }
 }

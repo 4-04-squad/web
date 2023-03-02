@@ -1,15 +1,13 @@
 <template>
-  <main class="main-page-content">
-    <div id="page-about">
-      <h1>About</h1>
-    </div>
-  </main>
+  <div id="page-about" class="main-page-content">
+    <h1>About</h1>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
 
 export default defineComponent({
-    name: 'AboutView',  
-})
+  name: "AboutView",
+});
 </script>

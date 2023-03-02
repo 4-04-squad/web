@@ -2,7 +2,7 @@
 @import "tailwind";
 
 /* BASE */
-@import "partials/base/theme";
+@import "partials/base/themes";
 @import "partials/base/reset";
 @import "partials/base/mixins";
 @import "partials/base/variables";
@@ -20,6 +20,7 @@
 @import "partials/layout/nav";
 
 /* PAGES */
+@import "partials/pages/pages";
 @import "partials/pages/page-404";
 
 /* UI */
