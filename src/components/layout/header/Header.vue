@@ -79,47 +79,48 @@ export default defineComponent({
   },
   methods: {
     async login() {
+      const loginUrl = `${import.meta.env.VITE_APP_API_URL}/users/login`;
       const token = import.meta.env.VITE_APP_FORTY_TWO_CLIENT_ID;
-      const callbackUrl = "http://localhost:3001/auth/login/callback";
+      const callbackUrl = `${import.meta.env.VITE_APP_API_URL}/auth/login/callback`;
       const redirectUrl = `https://api.intra.42.fr/oauth/authorize?client_id=${token}&redirect_uri=${callbackUrl}&response_type=code`;
       const popup = window.open(redirectUrl, "_blank", "height=600,width=600");
 
-      // if the popup response is 302, it means the user is already logged in
-      const interval = setInterval(() => {
-        if (popup && popup.location.href === "http://localhost:3003/login") {
+      popup?.addEventListener("load", () => {
+        if (popup?.location.href === loginUrl) {
           popup.close();
-          clearInterval(interval);
         }
-      }, 100);
+      });
 
-      // Check if the token is valid on the server
-      try {
-        const response = await axios
-          .get("http://localhost:3001/users/login", {
+      // wait for the user to complete the login process
+      const interval = setInterval(async () => {
+        try {
+          const response = await axios.get(loginUrl, {
             withCredentials: true,
-          })
-          .then((res) => {
+          });
+          // check if the user is logged in
+          if (response.status === 200) {
+            // clear the interval and close the popup
+            clearInterval(interval);
+            popup?.close();
             // set the user in the store
-            this.userStore.setUser(res.data.user as UserInterface);
+            this.userStore.setUser(response.data.user as UserInterface);
             if (this.userStore.user) {
               console.log("User is logged in " + this.userStore.user.pseudo);
             }
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      } catch (error: any) {
-        console.log(error);
-      }
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }, 100);
     },
 
     async logout() {
       if (this.userStore.user) {
         try {
           const response = await axios
-          .get("http://localhost:3001/auth/signout/" + this.userStore.user.id, {
-            withCredentials: true,
-          })
+            .get(`${import.meta.env.VITE_APP_API_URL}/auth/signout/${this.userStore.user.id}`, {
+              withCredentials: true,
+            })
             .then((res) => {
               this.userStore.clearUser();
               console.log(res)
