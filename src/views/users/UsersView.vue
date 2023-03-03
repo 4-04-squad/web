@@ -23,7 +23,7 @@ export default defineComponent({
   async created() {
     try {
       const response = await axios
-        .get("http://localhost:3001/users", {
+        .get(`${import.meta.env.VITE_APP_API_URL}/users`, {
           withCredentials: true,
         })
         .then((res) => {
