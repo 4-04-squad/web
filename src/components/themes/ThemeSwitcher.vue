@@ -77,6 +77,11 @@ export default defineComponent({
     --#{ $name }: #{$value};
   }
 
+  @each $name,
+  $value in $default-theme {
+    --#{ $name }: #{$value};
+  }
+
   .btn {
 
     &:hover {
