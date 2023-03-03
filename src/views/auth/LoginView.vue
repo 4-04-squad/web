@@ -6,7 +6,7 @@
       <p v-if="userStore.user">
         Connecté en tant que
         <RouterLink
-          :to="{ name: 'user', params: { id: userStore.user.id } }"
+          :to="{ name: 'user', params: { pseudo: userStore.user.pseudo } }"
           class="link"
         >
           {{ userStore.user.pseudo }}
