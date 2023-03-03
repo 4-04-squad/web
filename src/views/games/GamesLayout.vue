@@ -1,13 +1,13 @@
 <template>
   <GameLayout>
-  <div class="games-layout main-page-content">
-    <div class="games-layout__container">
-      <div class="games-layout__content">
-        <router-view />
+    <div class="games-layout main-page-content">
+      <div class="games-layout__container">
+        <div class="games-layout__content">
+          <router-view />
+        </div>
       </div>
     </div>
-  </div>
-</GameLayout>
+  </GameLayout>
 </template>
 
 <script lang="ts">

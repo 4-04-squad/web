@@ -71,19 +71,15 @@ export default defineComponent({
 
 // Light theme
 :root {
-
-  @each $name,
-  $value in $light-theme {
+  @each $name, $value in $light-theme {
     --#{ $name }: #{$value};
   }
 
-  @each $name,
-  $value in $default-theme {
+  @each $name, $value in $default-theme {
     --#{ $name }: #{$value};
   }
 
   .btn {
-
     &:hover {
       svg {
         fill: var(--text-color);
@@ -91,7 +87,7 @@ export default defineComponent({
     }
 
     svg {
-      fill: #FFFFFF;
+      fill: #ffffff;
     }
   }
 }
@@ -110,9 +106,7 @@ export default defineComponent({
 
 // Dark theme
 .dark {
-
-  @each $name,
-  $value in $dark-theme {
+  @each $name, $value in $dark-theme {
     --#{ $name }: #{$value};
   }
 
@@ -123,15 +117,13 @@ export default defineComponent({
   }
 
   .btn {
-
     &:hover {
       svg {
-        fill: #FFFFFF;
+        fill: #ffffff;
       }
     }
 
     svg {
-      
       fill: var(--border-color);
     }
   }

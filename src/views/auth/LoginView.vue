@@ -1,24 +1,26 @@
 <template>
   <div id="page-login" class="grid">
-    <div class="column page-thumb">
-
-</div>
-<div class="column page-content">
-  <h1>Login</h1>
-  <p v-if="userStore.user">Connecté en tant que 
-    <RouterLink :to="{ name: 'user', params: { id: userStore.user.id } }" class="link">
-      {{ userStore.user.pseudo }}
-    </RouterLink>
-  </p>
-  <p v-else>Connectez-vous pour accéder à votre espace</p>
-  <LogoutButton class="btn" v-if="userStore.user">
-    se deconnecter
-  </LogoutButton>
-  <LoginButton class="btn btn--icon" v-else>
-    <QDIcon />
-    profile 42
-  </LoginButton>
-</div>
+    <div class="column page-thumb"></div>
+    <div class="column page-content">
+      <h1>Login</h1>
+      <p v-if="userStore.user">
+        Connecté en tant que
+        <RouterLink
+          :to="{ name: 'user', params: { id: userStore.user.id } }"
+          class="link"
+        >
+          {{ userStore.user.pseudo }}
+        </RouterLink>
+      </p>
+      <p v-else>Connectez-vous pour accéder à votre espace</p>
+      <LogoutButton class="btn" v-if="userStore.user">
+        se deconnecter
+      </LogoutButton>
+      <LoginButton class="btn btn--icon" v-else>
+        <QDIcon />
+        profile 42
+      </LoginButton>
+    </div>
   </div>
 </template>
 
@@ -90,6 +92,5 @@ export default defineComponent({
       }
     }
   }
-
 }
 </style>

@@ -1,7 +1,5 @@
 <template>
-  <aside class="main-sidebar"></aside>
+  <aside class="main-sidebar">
+    <slot name="sidebar-content"></slot>
+  </aside>
 </template>
-
-<script setup lang="ts">
-import { RouterLink } from "vue-router";
-</script>

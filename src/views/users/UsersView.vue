@@ -1,6 +1,6 @@
 <template>
   <div id="page-profile">
-    
+
   </div>
 </template>
 
@@ -18,26 +18,24 @@ export default defineComponent({
         type: Array as () => UserInterface[],
         default: () => [],
       },
+    };
+  },
+  async created() {
+    try {
+      const response = await axios
+        .get("http://localhost:3001/users", {
+          withCredentials: true,
+        })
+        .then((res) => {
+          // save the users
+          this.users = res.data;
+        })
+        .catch((err) => {
+          if (err.response.status == 401) router.push({ path: "/login" });
+        });
+    } catch (error: any) {
+      console.log(error);
     }
   },
-  created() {
-    try {
-        const response = axios
-          .get("http://localhost:3001/users", {
-            withCredentials: true,
-          })
-          .then((res) => {
-            // set the user in the store
-            console.log(res)
-            this.users = res.data as UserInterface[] 
-          })
-          .catch((err) => {
-            if (err.response.status == 401)
-              router.push({ path: '/login' })
-          });
-      } catch (error: any) {
-        console.log(error);
-      }
-  }
 });
 </script>

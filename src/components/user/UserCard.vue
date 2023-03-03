@@ -1,8 +1,8 @@
 <template>
   <RouterLink
     :class="`user user-${size}`"
-    :to="{ name: 'user', params: { id: user.id } }"
-  >
+    :to="isCurrentUser() ? { name: 'profile' } : { name: 'user', params: { pseudo: user.pseudo } }"
+ >
     <div :class="`user-card grid ${full}-card`">
       <div :class="`column user-card__avatar ${size}`">
         <img :src="user.avatar" :alt="user.pseudo" />
@@ -24,12 +24,16 @@ import { RouterLink } from "vue-router";
 import type { UserInterface } from "@/interfaces/user.interface";
 import { defineComponent } from "vue";
 import type { PropType } from "vue";
+import { useUserStore } from "@/stores/user";
 
 type Size = "medium" | "small" | "large";
 type CardSize = "full" | "half";
 
 export default defineComponent({
   name: "UserCard",
+  components: {
+    RouterLink,
+  },
   props: {
     user: {
       type: Object as () => UserInterface,
@@ -51,6 +55,16 @@ export default defineComponent({
       type: String,
       default: "",
     },
+  },
+  setup(props) {
+    // check if current user is the same as the user in the card
+    const userStore = useUserStore();
+    const isCurrentUser = () => {
+      return props.user.pseudo === userStore.user?.pseudo ? true : false;
+    };
+    return {
+      isCurrentUser,
+    };
   },
 });
 </script>

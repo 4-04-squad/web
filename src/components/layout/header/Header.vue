@@ -28,7 +28,7 @@
         <InfoIcon />
       </RouterLink>
       <LogoutButton v-if="userStore.user" :class="'link'">
-          <button class="link">
+        <button class="link">
           <LogoutIcon />
         </button>
       </LogoutButton>

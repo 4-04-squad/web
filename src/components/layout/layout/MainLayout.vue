@@ -2,7 +2,12 @@
   <div class="main-layout">
     <Header />
     <slot></slot>
-    <Sidebar />
+    <Sidebar>
+      <section class="head">
+        <h1>{{ title }}</h1>
+        <p>{{ subtitle }}</p>
+      </section>
+    </Sidebar>
   </div>
 </template>
 
@@ -16,6 +21,16 @@ export default defineComponent({
   components: {
     Header,
     Sidebar,
+  },
+  props: {
+    title: {
+      type: String,
+      default: "",
+    },
+    subtitle: {
+      type: String,
+      default: "",
+    },
   },
 });
 </script>
