@@ -71,20 +71,22 @@ export default defineComponent({
 
 // Light theme
 :root {
-  @each $name, $value in $light-theme {
-    --#{ $name }: #{$value};
-  }
-}
 
-// Dark theme
-.dark {
-  @each $name, $value in $dark-theme {
+  @each $name,
+  $value in $light-theme {
     --#{ $name }: #{$value};
   }
 
-  .toggle-switch-icon {
+  .btn {
+
+    &:hover {
+      svg {
+        fill: var(--text-color);
+      }
+    }
+
     svg {
-      stroke: var(--border-color);
+      fill: #FFFFFF;
     }
   }
 }
@@ -98,6 +100,35 @@ export default defineComponent({
 
   svg {
     stroke: var(--svg-color);
+  }
+}
+
+// Dark theme
+.dark {
+
+  @each $name,
+  $value in $dark-theme {
+    --#{ $name }: #{$value};
+  }
+
+  .toggle-switch-icon {
+    svg {
+      stroke: var(--border-color);
+    }
+  }
+
+  .btn {
+
+    &:hover {
+      svg {
+        fill: #FFFFFF;
+      }
+    }
+
+    svg {
+      
+      fill: var(--border-color);
+    }
   }
 }
 </style>

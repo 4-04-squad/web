@@ -91,6 +91,18 @@ main {
 
 }
 
+.main-basic-layout {
+  display: grid;
+  height: 100vh;
+  max-height: 100vh;
+  grid-template-columns: 0.1fr 2fr;
+  grid-template-areas: "header main";
+
+  .main-page-content  {
+    margin-right: 1rem;
+  }
+}
+
 .main-header {
   grid-area: header;
   padding: 1rem;
@@ -107,13 +119,23 @@ main {
 
 .main-page-content {
   grid-area: main;
-  padding: 1rem;
+  max-height: 100%;
   margin: 1rem 0;
   display: flex;
   flex-direction: column;
   background-color: var(--secondary-color);
   border-radius: $radius;
   //box-shadow: $shadow;
+
+  .layout-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .layout-content {
+      flex: 1;
+    }
+  }
 }
 
 .main-sidebar {

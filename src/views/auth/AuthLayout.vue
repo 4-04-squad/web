@@ -1,23 +1,23 @@
 <template>
-  <MainLayout>
+  <BasicLayout>
     <div class="auth-layout main-page-content">
-      <div class="auth-layout__container">
-        <div class="auth-layout__content">
+      <div class="auth-layout__container layout-container">
+        <div class="auth-layout__content layout-content">
           <router-view />
         </div>
       </div>
     </div>
-  </MainLayout>
+  </BasicLayout>
 </template>
 
 <script lang="ts">
-import MainLayout from "@/components/layout/layout/MainLayout.vue";
+import BasicLayout from "@/components/layout/layout/BasicLayout.vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "AuthLayout",
   components: {
-    MainLayout,
+    BasicLayout,
   },
 });
 </script>
