@@ -49,9 +49,17 @@ const router = createRouter({
           path: "/users/:pseudo",
           name: "user",
           meta: {
-            title: (route) => `Profile de ${route.params.pseudo}`,
+            title: (route: { params: { pseudo: any; }; }) => `Profile de ${route.params.pseudo} - ${import.meta.env.VITE_APP_TITLE}`,
           },
           component: () => import("@/views/users/ProfileView.vue"),
+        },
+        {
+          path: "/users/:id",
+          name: "user-edit",
+          meta: {
+            title: "Editer un utilisateur",
+          },
+          component: () => import("@/views/users/UsersEditView.vue"),
         },
         {
           path: "/users/all",

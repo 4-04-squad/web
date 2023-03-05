@@ -3,14 +3,14 @@ import { defineStore } from "pinia";
 
 export const useUserStore = defineStore("user", {
   state: () => ({
-    user: null as UserInterface | null,
+    user: undefined as UserInterface | undefined,
   }),
   actions: {
     setUser(user: UserInterface) {
       this.user = user;
     },
     clearUser() {
-      this.user = null;
+      this.user = undefined;
     },
   },
   persist: {

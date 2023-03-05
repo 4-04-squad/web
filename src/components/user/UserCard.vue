@@ -2,6 +2,7 @@
   <RouterLink
     :class="`user user-${size}`"
     :to="isCurrentUser() ? { name: 'profile' } : { name: 'user', params: { pseudo: user.pseudo } }"
+    v-if="user"
  >
     <div :class="`user-card grid ${full}-card`">
       <div :class="`column user-card__avatar ${size}`">
@@ -11,9 +12,9 @@
         ></div>
       </div>
       <div class="column user-card__details">
-        <h3>{{ user.pseudo }}</h3>
-        <p v-if="info.length">{{ info }}</p>
-        <p v-if="preview.length">{{ preview }}</p>
+        <h3 class="pseudo">@{{ user.pseudo }}</h3>
+        <p v-if="info.length" class="info">{{ info }}</p>
+        <p v-if="preview.length" class="preview">{{ preview }}</p>
       </div>
     </div>
   </RouterLink>
@@ -37,7 +38,7 @@ export default defineComponent({
   props: {
     user: {
       type: Object as () => UserInterface,
-      default: null,
+      default: undefined,
     },
     full: {
       type: String as PropType<CardSize>,
@@ -60,7 +61,7 @@ export default defineComponent({
     // check if current user is the same as the user in the card
     const userStore = useUserStore();
     const isCurrentUser = () => {
-      return props.user.pseudo === userStore.user?.pseudo ? true : false;
+      return props.user?.pseudo === userStore.user?.pseudo ? true : false;
     };
     return {
       isCurrentUser,
@@ -110,6 +111,13 @@ export default defineComponent({
     &.large {
       width: 100px;
       height: 100px;
+
+      .user-card__status {
+        width: 20px;
+        height: 20px;
+        right: 5px;
+        bottom: 5px;
+      }
     }
   }
 
@@ -133,6 +141,29 @@ export default defineComponent({
 
     &.online {
       background-color: var(--success-color);
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 10px;
+
+    .pseudo {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+
+    .info {
+      font-size: 0.8rem;
+      margin: 0;
+    }
+
+    .preview {
+      font-size: 0.8rem;
+      margin: 0;
     }
   }
 }
