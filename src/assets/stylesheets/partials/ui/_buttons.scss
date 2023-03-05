@@ -20,6 +20,10 @@
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     font-weight: 600;
+    width: fit-content;
+    min-width: fit-content;
+    cursor: pointer;
+
 
     &--icon {
       display: flex;
@@ -28,6 +32,18 @@
       svg {
         margin-right: 0.5rem;
       }
+    }
+
+    &--delete {
+      @include btn($color: #ffffff  , $bg: var(--warning-color), $border: 0, $radius: $radius-md, $padding: 0.5rem 1rem);
+    }
+
+    &--success {
+      @include btn($color: #ffffff , $bg: var(--success-color), $border: 0, $radius: $radius-md, $padding: 0.5rem 1rem);
+    }
+
+    &--submit {
+      @include btn($color: #ffffff , $bg: var(--success-color), $border: 0, $radius: $radius-md, $padding: 0.5rem 1rem);
     }
 }
 

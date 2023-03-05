@@ -54,7 +54,7 @@ const router = createRouter({
           component: () => import("@/views/users/ProfileView.vue"),
         },
         {
-          path: "/users/:id",
+          path: "/users/:id/edit",
           name: "user-edit",
           meta: {
             title: "Editer un utilisateur",

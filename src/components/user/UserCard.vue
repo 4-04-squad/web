@@ -70,7 +70,7 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .user-card {
   &.full-card {
     grid-template-columns: 1fr 2fr;

@@ -25,6 +25,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.feather-edit {
+    fill: none !important;
+}
 .dark {
   .feather-edit {
     fill: none !important;

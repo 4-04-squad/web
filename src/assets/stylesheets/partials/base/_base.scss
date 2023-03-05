@@ -9,6 +9,7 @@ html {
 }
 
 body {
+    overflow: hidden;
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background-color 0.2s $ease;

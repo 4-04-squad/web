@@ -6,11 +6,11 @@ export const useUserStore = defineStore("user", {
     user: undefined as UserInterface | undefined,
   }),
   actions: {
-    setUser(user: UserInterface) {
+    setUser(user: UserInterface | undefined) {
       this.user = user;
     },
     clearUser() {
-      this.user = undefined;
+      this.user = undefined as UserInterface | undefined;
     },
   },
   persist: {

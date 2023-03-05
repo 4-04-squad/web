@@ -1,5 +1,5 @@
 <template>
-  <div id="page-profile">
+  <div id="page-profile" class="page-user">
     <div class="head">
       <UserCard :user="user" :full="'full'" :size="'large'"/>
       <div class="shortcut" v-if="user?.id === userStore.user?.id">
@@ -18,8 +18,8 @@
 import type { UserInterface } from "@/interfaces/user.interface";
 import { useUserStore } from "@/stores/user";
 import { defineComponent } from "vue";
-import axios from "axios";
 import { useRoute } from "vue-router";
+import axios from "axios";
 import UserCard from "@/components/user/UserCard.vue";
 import {
   EditIcon,
@@ -71,33 +71,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="scss">
-#page-profile {
-  .head {
-    height: 30vh;
-    position: relative;
-    background-color: var(--border-color);
-    border-top-right-radius: var(--radius);
-    border-top-left-radius: var(--radius);
-
-    .user-card {
-      position: absolute;
-      bottom: -50px;
-      left: 50px;
-      
-      &__avatar {
-        img {
-          border: 4px solid var(--secondary-color);
-        }
-      }
-    }
-
-    .shortcut {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-    }
-  }
-}
-</style>

@@ -21,3 +21,55 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss">
+.page-user{
+  .head {
+    .user-card {
+      position: absolute;
+      bottom: -75px;
+      left: 50px;
+
+      @media screen and (max-width: 768px) {
+        left: 20px;
+      }
+      
+      &__avatar {
+        img {
+          border: 4px solid var(--secondary-color);
+
+          @media screen and (max-width: 768px) {
+            height: 80px;
+            width: 80px;
+          }
+        }
+      }
+
+      &__status {
+        @media screen and (max-width: 768px) {    
+          right: 20px;
+          bottom: 20px;
+        }
+      }
+
+      &__details {
+        position: absolute;
+        left: 100px;
+        @media screen and (max-width: 768px) {
+          left: 80px;
+        }
+      }
+    }
+
+    .shortcut {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+
+      .btn {
+        font-size: smaller;
+      }
+    }
+  }
+}
+</style>
