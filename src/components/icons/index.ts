@@ -10,6 +10,7 @@ import GameIcon from "./svg/GameIcon.vue";
 import UsersIcon from "./svg/UsersIcon.vue";
 import QDIcon from "./svg/QDIcon.vue";
 import EditIcon from "./svg/EditIcon.vue";
+import SearchIcon from "./svg/SearchIcon.vue";
 
 export {
   HomeIcon,
@@ -24,4 +25,5 @@ export {
   UsersIcon,
   QDIcon,
   EditIcon,
+  SearchIcon,
 };
