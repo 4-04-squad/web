@@ -167,4 +167,18 @@ export default defineComponent({
     }
   }
 }
+
+.status {
+  &.offline {
+      color: var(--danger-color);
+    }
+
+    &.playing {
+      color: var(--primary-color);
+    }
+
+    &.online {
+      color: var(--success-color);
+    }
+}
 </style>
