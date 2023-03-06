@@ -16,6 +16,7 @@
       empty-message="Aucun utilisateur trouvé"
       :rows-items="[10, 15, 20]"
       rows-per-page="5"
+      rows-per-page-message="Utilisateurs par page"
       >
       <template #item-avatar="{ avatar, pseudo }">
         <a :href="`/users/${pseudo}`">
