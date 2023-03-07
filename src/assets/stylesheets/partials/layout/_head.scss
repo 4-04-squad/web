@@ -1,0 +1,24 @@
+.head {
+    &--no-user {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 80%;
+        text-align: center;
+
+        .title {
+            font-size: 1.5rem;
+            border-bottom: 2px solid;
+            padding: 0.5rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 1rem;
+            margin: 1rem auto;
+        }
+    }
+}

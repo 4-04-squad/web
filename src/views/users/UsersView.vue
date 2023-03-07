@@ -56,6 +56,7 @@ import {
   SearchIcon,
   ExternalLinkIcon,
 } from "@/components/icons";
+import { useUserStore } from "@/stores/user";
 
 export default defineComponent({
   name: "UsersView",
@@ -63,6 +64,12 @@ export default defineComponent({
     EasyDataTable,
     SearchIcon,
     ExternalLinkIcon,
+  },
+  beforeCreate() {
+    const userStore = useUserStore();
+    if (!userStore.user) {
+      router.push({ path: "/login" });
+    }
   },
   setup() {
     const searchValue = ref("");
