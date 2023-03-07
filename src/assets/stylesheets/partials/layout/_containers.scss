@@ -23,29 +23,29 @@ main {
     grid-template-columns: 3fr 1fr;
     grid-template-rows: 1fr 120px;
 
-    .main-page-content  {
-        margin: 1rem;
+    .main-page-content {
+      margin: 1rem;
     }
 
     .main-nav,
     .main-header {
-        flex-direction: row;
+      flex-direction: row;
     }
 
     .main-nav {
-        &--login {
-            .grid {
-                grid-gap: 0;
-            }
+      &--login {
+        .grid {
+          grid-gap: 0;
         }
+      }
 
-        .toggle-switch {
-            margin-top: 0;
-        }
+      .toggle-switch {
+        margin-top: 0;
+      }
 
-        .link {
-            margin-bottom: 0;
-        }
+      .link {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -57,23 +57,23 @@ main {
     grid-template-rows: 1fr 100px;
 
     .main-sidebar {
-        display: none;
+      display: none;
     }
 
     .main-nav {
-        &--login {
-            display: none;
-        }
+      &--login {
+        display: none;
+      }
 
-        &--link {
-            justify-content: space-around;
-            align-content: center;
-            width: 100%;
-        }
+      &--link {
+        justify-content: space-around;
+        align-content: center;
+        width: 100%;
+      }
 
-        &--settings {
-            display: none;
-        }
+      &--settings {
+        display: none;
+      }
     }
   }
 }
@@ -85,7 +85,7 @@ main {
   grid-template-columns: 0.1fr 2fr;
   grid-template-areas: "header main";
 
-  .main-page-content  {
+  .main-page-content {
     margin-right: 1rem;
   }
 
@@ -98,7 +98,7 @@ main {
   grid-template-columns: 0.1fr 2fr;
   grid-template-areas: "header main";
 
-  .main-page-content  {
+  .main-page-content {
     margin-right: 1rem;
   }
 }
@@ -114,6 +114,7 @@ main {
   justify-content: space-between;
   background-color: var(--secondary-color);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
 
   @include bp($tablet, max) {
     margin-top: 0;
@@ -128,6 +129,7 @@ main {
   flex-direction: column;
   background-color: var(--secondary-color);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
 
   .layout-container {
     display: flex;
@@ -164,6 +166,7 @@ main {
       display: flex;
       justify-content: center;
       align-items: center;
+      font-weight: bold;
 
       svg {
         margin-right: 1rem;
@@ -175,9 +178,9 @@ main {
 
         span {
           display: flex;
-        align-items: center;
-        align-content: center;
-        margin-bottom: 0.5rem;
+          align-items: center;
+          align-content: center;
+          margin-bottom: 0.5rem;
         }
       }
 
@@ -205,7 +208,6 @@ main {
 
 .main-sidebar {
   grid-area: sidebar;
-  padding: 1rem;
   margin: 1rem;
   display: flex;
   align-content: center;

@@ -1,5 +1,5 @@
 <template>
   <aside class="main-sidebar">
-    <slot name="sidebar-content"></slot>
+    <slot></slot>
   </aside>
 </template>
