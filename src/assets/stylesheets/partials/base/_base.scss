@@ -53,3 +53,32 @@ span.anchor {
     top: -130px;
     visibility: hidden;
 }
+
+/* Hide the scrollbar track */
+::-webkit-scrollbar-track {
+    background-color: var(--border-color);
+    border-bottom-right-radius: var(--radius);
+    margin-bottom: 0.8rem;
+  }
+  
+  /* Style the scrollbar thumb */
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--text-color);
+    border-bottom-right-radius: var(--radius);
+  }
+  
+  /* Style the scrollbar thumb when hovered */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary-color);
+  }
+  
+  /* Style the scrollbar corner */
+  ::-webkit-scrollbar-corner {
+    background-color: var(--text-color);
+  }
+  
+  /* Set the width and height of the scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }

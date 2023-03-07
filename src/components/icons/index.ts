@@ -12,6 +12,7 @@ import QDIcon from "./svg/QDIcon.vue";
 import EditIcon from "./svg/EditIcon.vue";
 import SearchIcon from "./svg/SearchIcon.vue";
 import ExternalLinkIcon from "./svg/ExternalLinkIcon.vue";
+import GithubIcon from "./svg/GithubIcon.vue";
 
 export {
   HomeIcon,
@@ -28,4 +29,5 @@ export {
   EditIcon,
   SearchIcon,
   ExternalLinkIcon,
+  GithubIcon,
 };

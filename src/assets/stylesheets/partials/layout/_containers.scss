@@ -197,7 +197,7 @@ main {
     padding: var(--spacing);
     border-bottom-right-radius: var(--radius);
     border-bottom-left-radius: var(--radius);
-    scrollbar-width: none;
+    //scrollbar-width: none;
 
     @include bp($small, max) {
       max-height: 70vh;
