@@ -22,3 +22,29 @@
         }
     }
 }
+
+.hero {
+    background-color: var(--border-color);
+    border-radius: var(--radius);
+    margin: var(--spacing);
+    height: calc(40vh - (var(--spacing) * 2));
+    max-height: calc(40vh - (var(--spacing) * 2));
+
+    @include bp($small, max) {
+        max-height: calc(30vh - (var(--spacing) * 2));
+        height: calc(30vh - (var(--spacing) * 2));
+      }
+
+      .title {
+        font-size: 3rem;
+        text-align: center;
+
+        span { 
+            font-weight: bold;
+        }
+
+        @include bp($small, max) {
+            font-size: 2rem;
+        }
+      }
+}

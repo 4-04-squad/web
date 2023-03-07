@@ -1,10 +1,10 @@
 <template>
     <h2 class="users-list__title">{{ title }}</h2>
-    <div :class="`users-list users-list--${status}`">
+    <div :class="`users-list users-list--${channel}`">
         <div class="users-list__item" v-for="user in users" :key="user.id" v-if="users.length">
             <UserCard :user="user" :full="'full'" />
         </div>
-        <p class="users-list__message" v-else>Aucun utilisateurs <span :class="`status ${status.toLowerCase()}`">{{ status }}</span></p>
+        <p class="users-list__message" v-else>Aucun membres</p>
     </div>
 </template>
   
@@ -14,29 +14,24 @@ import { defineComponent, ref } from "vue";
 import UserCard from "./UserCard.vue";
 import axios from "axios";
 
-type Status = "ONLINE" | "OFFLINE" | "PLAYING";
-
 export default defineComponent({
-    name: "UsersList",
+    name: "MembersList",
     components: { UserCard },
     props: {
         title: {
             type: String,
-            default: "Liste des utilisateurs",
+            default: "Membres",
         },
-        limit: {
+        channel: {
             type: String,
-            default: "5",
-        },
-        status: {
-            type: String as () => Status,
-            default: "ONLINE",
+            default: "",
         },
     },
     setup(props) {
         const users = ref([] as UserInterface[]);
 
-        axios.get(`${import.meta.env.VITE_APP_API_URL}/users/${props.status}/${props.limit}`, {
+        // TODO: Add channels members API controller
+        axios.get(`${import.meta.env.VITE_APP_API_URL}/users`, {
             withCredentials: true,
         })
         .then((response) => {
@@ -81,4 +76,3 @@ export default defineComponent({
     }
 }
 </style>
-  

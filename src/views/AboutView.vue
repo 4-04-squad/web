@@ -2,43 +2,47 @@
   <MainLayout>
     <div id="page-about" class="main-page-content">
       <div class="head">
-        <h1 class="title">About</h1>
+        <h1 class="title">
+          <span>À propos</span>
+        </h1>
       </div>
       <div class="grid content-wrapper">
         <div class="about-content">
           <h2>ft_transcendence</h2>
-          <p>This project is a part of <a class="link" href="https://42lausanne.ch/">42Lausanne</a> school curriculum.</p>
-          <p>
-            The goal of this project is to create a web application that allows
-            users to create and join chat rooms and send messages to each other.
+          <p>Ce projet fait partie du programme de l'école <a class="link" href="https://42lausanne.ch/">42Lausanne</a>.
           </p>
           <p>
-            Users can also play pong with each other.
+            Le but de ce projet est de créer une application web qui permet aux utilisateurs de créer et de rejoindre des
+            salons de discussion et de s'envoyer des messages.
           </p>
           <p>
-            The application is built using Vue 3 + Vite, TypeScript, NestJS, and build with docker and docker-compose.
+            Les utilisateurs peuvent également jouer au pong ensemble.
+          </p>
+          <p>
+            L'application est construite à l'aide de Vue 3 + Vite, TypeScript, NestJS, et est créée avec docker et
+            docker-compose.
           </p>
         </div>
         <div class="about-authors">
-          <h2>Authors</h2>
+          <h2>Auteures</h2>
           <div class="grid">
             <div v-for="author in authors">
-              <a class="link link--author" :href="`https://github.com/${ author }`">
+              <a class="link link--author" :href="`https://github.com/${author}`">
                 <div class="grid">
                   <div class="avatar"></div>
                   <div>
                     <p>{{ author }}</p>
-                      <a :href="`https://github.com/${ author }`">
-                        <GithubIcon />
-                      </a>
+                    <a :href="`https://github.com/${author}`">
+                      <GithubIcon />
+                    </a>
                   </div>
                 </div>
               </a>
             </div>
           </div>
         </div>
-        
-        
+
+
       </div>
     </div>
   </MainLayout>
@@ -47,7 +51,9 @@
 <script lang="ts">
 import MainLayout from "@/components/layout/layout/MainLayout.vue";
 import { defineComponent } from "vue";
-import {GithubIcon} from "@/components/icons";
+import {
+  GithubIcon,
+} from "@/components/icons";
 
 export default defineComponent({
   name: "AboutView",
@@ -57,7 +63,7 @@ export default defineComponent({
   },
   setup() {
     const authors = ["MarJC5", "Yace", "Tywael", "Yukiech", "BolleCola"];
-    return {authors};
+    return { authors };
   },
 });
 </script>
@@ -72,21 +78,19 @@ export default defineComponent({
     background-color: var(--border-color);
   }
 
-  svg {
-    fill: var(--text-color);
-  }
-
-  .grid {
-    grid-template-columns: 1fr 1fr;
-  }
 
   .link {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
 
+    svg {
+      fill: var(--text-color);
+    }
+
     &--author {
       color: var(--text-color);
+
       .grid {
         grid-template-columns: 1fr 3fr;
       }
@@ -111,5 +115,4 @@ export default defineComponent({
   .about-content {
     max-width: 400px;
   }
-}
-</style>
+}</style>

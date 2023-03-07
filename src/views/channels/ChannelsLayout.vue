@@ -1,5 +1,5 @@
 <template>
-  <MainLayout>
+  <ChannelLayout>
     <div class="channels-layout main-page-content">
       <div class="channels-layout__container">
         <div class="channels-layout__content">
@@ -7,25 +7,17 @@
         </div>
       </div>
     </div>
-  </MainLayout>
+  </ChannelLayout>
 </template>
 
 <script lang="ts">
-import MainLayout from "@/components/layout/layout/MainLayout.vue";
+import ChannelLayout from "@/components/layout/layout/ChannelLayout.vue";
 import { defineComponent } from "vue";
-import { useUserStore } from "@/stores/user";
-import router from "@/router";
 
 export default defineComponent({
   name: "ChannelsLayout",
   components: {
-    MainLayout,
-  },
-  beforeCreate() {
-    const userStore = useUserStore();
-    if (!userStore.user) {
-      router.push({ path: "/login" });
-    }
+    ChannelLayout,
   },
 });
 </script>

@@ -1,3 +1,4 @@
+import { useUserStore } from "@/stores/user";
 import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
@@ -34,6 +35,7 @@ const router = createRouter({
       name: "users",
       meta: {
         title: "Utilisateurs",
+        requiresAuth: true,
       },
       component: () => import("@/views/users/UsersLayout.vue"),
       children: [
@@ -76,6 +78,7 @@ const router = createRouter({
       name: "chats",
       meta: {
         title: "Chats",
+        requiresAuth: true,
       },
       component: () => import("@/views/chats/ChatsLayout.vue"),
       children: [
@@ -94,6 +97,7 @@ const router = createRouter({
       name: "channels",
       meta: {
         title: "Channels",
+        requiresAuth: true,
       },
       component: () => import("@/views/channels/ChannelsLayout.vue"),
       children: [
@@ -112,6 +116,7 @@ const router = createRouter({
       name: "games",
       meta: {
         title: "Games",
+        requiresAuth: true,
       },
       component: () => import("@/views/games/GamesLayout.vue"),
       children: [
@@ -130,6 +135,7 @@ const router = createRouter({
       name: "home",
       meta: {
         title: "Accueil",
+        requiresAuth: true,
       },
       component: () => import("@/views/HomeView.vue"),
     },
@@ -144,7 +150,23 @@ const router = createRouter({
   ],
 });
 
+const isAuthenticated = () => {
+  const userStore = useUserStore();
+  const user = userStore.user;
+  return user && user.id;
+}
+
 router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!isAuthenticated()) {
+      next({
+        name: 'login',
+        query: { redirect: to.fullPath },
+      });
+    } else {
+      next();
+    }
+  }
   if (to.meta.title) {
     document.title = typeof to.meta.title === 'function'
       ? to.meta.title(to)
