@@ -14,8 +14,10 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import MoonIcon from "@/components/icons/svg/MoonIcon.vue";
-import SunIcon from "@/components/icons/svg/SunIcon.vue";
+import {
+  SunIcon,
+  MoonIcon,
+} from "@/components/icons";
 
 export default defineComponent({
   name: "ThemeSwitcher",

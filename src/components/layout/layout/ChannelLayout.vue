@@ -3,8 +3,8 @@
     <Header />
     <slot></slot>
     <Sidebar>
-      <UsersList
-        title="Utilisateurs en ligne"
+      <MembersList
+        title="Membres"
       />
     </Sidebar>
   </div>
@@ -13,15 +13,15 @@
 <script lang="ts">
 import Header from "@/components/layout/header/Header.vue";
 import Sidebar from "@/components/layout/sidebar/Sidebar.vue";
-import UsersList from "@/components/user/UsersList.vue";
+import MembersList from "@/components/user/MembersList.vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "MainLayout",
+  name: "ChannelLayout",
   components: {
     Header,
     Sidebar,
-    UsersList,
+    MembersList,
 },
   props: {
     title: {

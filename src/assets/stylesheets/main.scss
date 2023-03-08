@@ -9,6 +9,7 @@
 @import "partials/base/typography";
 @import "partials/base/base";
 @import "partials/base/keyframes";
+@import "partials/base/images";
 
 /* LAYOUT */
 @import "partials/layout/titles";
@@ -18,6 +19,7 @@
 @import "partials/layout/header";
 @import "partials/layout/footer";
 @import "partials/layout/nav";
+@import "partials/layout/head";
 
 /* PAGES */
 @import "partials/pages/pages";
@@ -27,3 +29,6 @@
 @import "partials/ui/buttons";
 @import "partials/ui/hamburger";
 @import "partials/ui/scroll";
+@import "partials/ui/forms";
+@import "partials/ui/cards";
+@import "partials/ui/table";
