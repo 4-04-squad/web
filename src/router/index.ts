@@ -151,9 +151,8 @@ const router = createRouter({
 });
 
 const isAuthenticated = () => {
-  const userStore = useUserStore();
-  const user = userStore.user;
-  return user && user.id;
+  const userStore = useUserStore()
+  return userStore.isAuthenticated
 }
 
 router.beforeEach((to, from, next) => {
@@ -162,11 +161,11 @@ router.beforeEach((to, from, next) => {
       next({
         name: 'login',
         query: { redirect: to.fullPath },
-      });
-    } else {
-      next();
+      })
+      return
     }
   }
+
   if (to.meta.title) {
     document.title = typeof to.meta.title === 'function'
       ? to.meta.title(to)
@@ -174,6 +173,7 @@ router.beforeEach((to, from, next) => {
   } else {
     document.title = `${import.meta.env.VITE_APP_TITLE}`;
   }
+
   next();
 });
 
