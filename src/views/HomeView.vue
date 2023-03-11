@@ -59,7 +59,7 @@ export default defineComponent({
   .home-card {
     background-color: var(--border-color);
     padding: var(--spacing);
-    border-radius: var(--radius);
+    border-radius: var(--radius-sm);
     height: 100%;
 
     .title {

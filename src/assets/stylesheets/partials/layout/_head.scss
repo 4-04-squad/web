@@ -25,14 +25,14 @@
 
 .hero {
     background-color: var(--border-color);
-    border-radius: var(--radius);
+    border-radius: var(--radius-sm);
     margin: var(--spacing);
-    height: calc(40vh - (var(--spacing) * 2));
-    max-height: calc(40vh - (var(--spacing) * 2));
+    height: calc((var(--vh) * 40) - (var(--spacing) * 2));
+    max-height: calc((var(--vh) * 40) - (var(--spacing) * 2));
 
     @include bp($small, max) {
-        max-height: calc(30vh - (var(--spacing) * 2));
-        height: calc(30vh - (var(--spacing) * 2));
+        max-height: calc((var(--vh) * 30) - (var(--spacing) * 2));
+        height: calc((var(--vh) * 30) - (var(--spacing) * 2));
       }
 
       .title {

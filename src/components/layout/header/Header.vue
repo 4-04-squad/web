@@ -10,18 +10,21 @@
       <RouterLink :to="{ name: 'home' }" class="link">
         <HomeIcon />
       </RouterLink>
-      <RouterLink :to="{ name: 'games' }" class="link">
+      <RouterLink :to="{ name: 'games' }" class="link games-all">
         <GameIcon />
       </RouterLink>
-      <RouterLink :to="{ name: 'channels' }" class="link">
+      <RouterLink :to="{ name: 'channels' }" class="link channels-all">
         <GlobeIcon />
       </RouterLink>
-      <RouterLink :to="{ name: 'chats' }" class="link">
+      <RouterLink :to="{ name: 'chats' }" class="link chats-all">
         <MessageIcon />
       </RouterLink>
-      <RouterLink :to="{ name: 'users-all' }" class="link">
+      <RouterLink :to="{ name: 'users-all' }" class="link users-all">
         <UsersIcon />
       </RouterLink>
+      <button class="link menu">
+        <MenuIcon />
+      </button>
     </nav>
     <nav class="main-nav main-nav--settings">
       <RouterLink :to="{ name: 'about' }" class="link">
@@ -53,6 +56,7 @@ import {
   GlobeIcon,
   GameIcon,
   UsersIcon,
+  MenuIcon,
 } from "@/components/icons";
 import { useUserStore } from "@/stores/user";
 
@@ -72,6 +76,7 @@ export default defineComponent({
     UsersIcon,
     LogoutButton,
     LoginButton,
+    MenuIcon,
   },
   setup() {
     const userStore = useUserStore();

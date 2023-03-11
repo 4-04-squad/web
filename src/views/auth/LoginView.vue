@@ -52,19 +52,36 @@ export default defineComponent({
 <style lang="scss" scoped>
 #page-login {
   height: 100%;
+  grid-template-areas: 
+    "page-thumb page-content";
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
+
+  @media (max-width: 768px) {
+    grid-template-areas: 
+      "page-content"
+      "page-thumb";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
 
   .column {
     height: 100%;
 
     &.page-thumb {
+      grid-area: page-thumb;
       background-color: var(--border-color);
       border-top-left-radius: var(--radius-md);
       border-bottom-left-radius: var(--radius-md);
+
+       @media (max-width: 768px) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
     }
 
     &.page-content {
+      grid-area: page-content;
       display: flex;
       justify-content: center;
       align-items: center;

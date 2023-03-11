@@ -13,6 +13,7 @@ import EditIcon from "./svg/EditIcon.vue";
 import SearchIcon from "./svg/SearchIcon.vue";
 import ExternalLinkIcon from "./svg/ExternalLinkIcon.vue";
 import GithubIcon from "./svg/GithubIcon.vue";
+import MenuIcon from "./svg/MenuIcon.vue";
 
 export {
   HomeIcon,
@@ -30,4 +31,5 @@ export {
   SearchIcon,
   ExternalLinkIcon,
   GithubIcon,
+  MenuIcon,
 };
