@@ -17,7 +17,7 @@
 <script lang="ts">
 import type { UserInterface } from "@/interfaces/user.interface";
 import { useUserStore } from "@/stores/user";
-import { defineComponent } from "vue";
+import { defineComponent, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
 import UserCard from "@/components/user/UserCard.vue";
@@ -33,40 +33,36 @@ export default defineComponent({
   },
   setup() {
     const userStore = useUserStore();
+    const route = useRoute();
+    const user = ref<UserInterface | undefined>(undefined);
+
+    // Watch for changes to route params and fetch user data again
+    watch(
+      () => route.params,
+      async () => {
+        if (route.params.pseudo) {
+          // Get user by pseudo from API if we are on another user profile
+          const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/users/${route.params.pseudo}`, {
+            withCredentials: true,
+          })
+          .then((response) => {
+            user.value = response.data.user;
+            console.log(response)
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+        } else {
+          // Get current user from store
+          user.value = userStore.user;
+        }
+      },
+      { immediate: true } // Call the function immediately when the component is created
+    );
 
     return {
       userStore,
-    };
-  },
-  async created() {
-    const userStore = useUserStore();
-    const route = useRoute();
-
-    let user: UserInterface | undefined = undefined;
-
-    // Check current route params to know if we are on the current user profile or not
-    if (route.params.pseudo) {
-      // Get user by pseudo from API if we are on another user profile
-      const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/users/${route.params.pseudo}`, {
-        withCredentials: true,
-      })
-      .then((response) => {
-        user = response.data.user;
-        console.log(response)
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    } else {
-      // Get current user from store
-      user = userStore.user;
-    }
-
-    this.$data.user = user;
-  },
-  data() {
-    return {
-      user: undefined as UserInterface | undefined,
+      user,
     };
   },
 });
