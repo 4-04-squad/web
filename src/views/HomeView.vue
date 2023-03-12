@@ -2,7 +2,9 @@
   <MainLayout>
     <div id="page-home" class="main-page-content">
       <div class="hero">
-        <h1 class="title">Hello, <span>{{ userStore.user?.pseudo }}</span></h1>
+        <h1 class="title">
+          Hello, <span>{{ userStore.user?.pseudo }}</span>
+        </h1>
       </div>
       <div class="content-wrapper">
         <div class="grid">

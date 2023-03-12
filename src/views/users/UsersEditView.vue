@@ -22,7 +22,12 @@
         <div class="form-fields">
           <div class="form-field">
             <label for="pseudo">Pseudo</label>
-            <input type="text" id="pseudo" name="pseudo" :value="user?.pseudo" />
+            <input
+              type="text"
+              id="pseudo"
+              name="pseudo"
+              :value="user?.pseudo"
+            />
           </div>
           <div class="form-field">
             <label for="email">Email</label>
@@ -32,16 +37,32 @@
         <div class="form-fields">
           <div class="form-field">
             <label for="firstname">Nom</label>
-            <input type="text" id="firstname" name="firstname" :value="user?.firstName" />
+            <input
+              type="text"
+              id="firstname"
+              name="firstname"
+              :value="user?.firstName"
+            />
           </div>
           <div class="form-field">
             <label for="lastname">Prénom</label>
-            <input type="text" id="lastname" name="lastname" :value="user?.lastName" />
+            <input
+              type="text"
+              id="lastname"
+              name="lastname"
+              :value="user?.lastName"
+            />
           </div>
         </div>
         <div class="form-field">
           <label for="about">Bio</label>
-          <textarea name="about" id="about" cols="30" rows="4" :value="user?.about"></textarea>
+          <textarea
+            name="about"
+            id="about"
+            cols="30"
+            rows="4"
+            :value="user?.about"
+          ></textarea>
         </div>
         <div class="form-field" v-if="user?.role === 'ADMIN'">
           <label for="role">Role</label>
@@ -52,7 +73,11 @@
         </div>
         <div class="form-fields form-fields--btns">
           <input class="btn btn--submit" type="submit" value="Modifier" />
-          <button class="btn btn--delete" @click.prevent="deleteUser" v-if="user?.role === 'ADMIN'">
+          <button
+            class="btn btn--delete"
+            @click.prevent="deleteUser"
+            v-if="user?.role === 'ADMIN'"
+          >
             Supprimer
           </button>
         </div>
@@ -67,9 +92,7 @@ import { useUserStore } from "@/stores/user";
 import { useRoute } from "vue-router";
 import axios from "axios";
 import { defineComponent } from "vue";
-import {
-  EditIcon,
-} from "@/components/icons";
+import { EditIcon } from "@/components/icons";
 
 export default defineComponent({
   name: "UsersEditView",
@@ -92,9 +115,10 @@ export default defineComponent({
     // Check current route params to know if we are on the current user profile or not
     if (route.params.id) {
       // Get user by pseudo from API if we are on another user profile
-      const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/users/${route.params.id}`, {
-        withCredentials: true,
-      })
+      const response = await axios
+        .get(`${import.meta.env.VITE_APP_API_URL}/users/${route.params.id}`, {
+          withCredentials: true,
+        })
         .then((response) => {
           user = response.data.user;
         })
@@ -114,19 +138,23 @@ export default defineComponent({
     };
   },
   methods: {
-    async updateUser(event: { preventDefault: () => void; target: any; }) {
+    async updateUser(event: { preventDefault: () => void; target: any }) {
       event.preventDefault();
 
       // TODO: convert to FormData to JSON
 
       try {
-        await axios.patch(`${import.meta.env.VITE_APP_API_URL}/users/${this.user?.id}`, formObject, {
-          withCredentials: true,
-          headers: {
-            'Content-Type': 'application/json'
+        await axios.patch(
+          `${import.meta.env.VITE_APP_API_URL}/users/${this.user?.id}`,
+          formObject,
+          {
+            withCredentials: true,
+            headers: {
+              "Content-Type": "application/json",
+            },
           }
-        });
-        alert('User updated successfully!');
+        );
+        alert("User updated successfully!");
       } catch (error) {
         console.log(error);
       }
@@ -136,9 +164,12 @@ export default defineComponent({
         return;
       }
       try {
-        await axios.delete(`${import.meta.env.VITE_APP_API_URL}/users/${this.user?.id}`, {
-          withCredentials: true,
-        });
+        await axios.delete(
+          `${import.meta.env.VITE_APP_API_URL}/users/${this.user?.id}`,
+          {
+            withCredentials: true,
+          }
+        );
         // Remove the user from the store
         this.userStore.setUser(undefined);
         // Navigate to the home page

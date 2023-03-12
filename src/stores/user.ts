@@ -1,11 +1,13 @@
 import type { UserInterface } from "@/interfaces/user.interface";
 import { defineStore } from "pinia";
-import axios from 'axios';
+import axios from "axios";
 import router from "@/router";
 
 export const useUserStore = defineStore("user", {
   state: () => ({
-    user: localStorage.getItem("localUser") ? JSON.parse(localStorage.getItem("localUser") as string) : undefined,
+    user: localStorage.getItem("localUser")
+      ? JSON.parse(localStorage.getItem("localUser") as string)
+      : undefined,
   }),
   actions: {
     setUser(user: UserInterface | undefined) {
@@ -28,13 +30,13 @@ export const useUserStore = defineStore("user", {
 });
 
 axios.interceptors.response.use(
-  response => response,
-  error => {
+  (response) => response,
+  (error) => {
     if (error.response && error.response.status === 401) {
       useUserStore().clearUser();
     }
     // redirect to login page
-    router.push({ name: 'login' });
+    router.push({ name: "login" });
     return Promise.reject(error);
   }
 );

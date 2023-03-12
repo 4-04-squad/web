@@ -52,13 +52,12 @@ export default defineComponent({
 <style lang="scss" scoped>
 #page-login {
   height: 100%;
-  grid-template-areas: 
-    "page-thumb page-content";
+  grid-template-areas: "page-thumb page-content";
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
 
   @media (max-width: 768px) {
-    grid-template-areas: 
+    grid-template-areas:
       "page-content"
       "page-thumb";
     grid-template-columns: 1fr;
@@ -74,7 +73,7 @@ export default defineComponent({
       border-top-left-radius: var(--radius-md);
       border-bottom-left-radius: var(--radius-md);
 
-       @media (max-width: 768px) {
+      @media (max-width: 768px) {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
       }

@@ -9,25 +9,29 @@
       <div class="grid content-wrapper">
         <div class="about-content">
           <h2>ft_transcendence</h2>
-          <p>Ce projet fait partie du programme de l'école <a class="link" href="https://42lausanne.ch/">42Lausanne</a>.
+          <p>
+            Ce projet fait partie du programme de l'école
+            <a class="link" href="https://42lausanne.ch/">42Lausanne</a>.
           </p>
           <p>
-            Le but de ce projet est de créer une application web qui permet aux utilisateurs de créer et de rejoindre des
-            salons de discussion et de s'envoyer des messages.
+            Le but de ce projet est de créer une application web qui permet aux
+            utilisateurs de créer et de rejoindre des salons de discussion et de
+            s'envoyer des messages.
           </p>
+          <p>Les utilisateurs peuvent également jouer au pong ensemble.</p>
           <p>
-            Les utilisateurs peuvent également jouer au pong ensemble.
-          </p>
-          <p>
-            L'application est construite à l'aide de Vue 3 + Vite, TypeScript, NestJS, et est créée avec docker et
-            docker-compose.
+            L'application est construite à l'aide de Vue 3 + Vite, TypeScript,
+            NestJS, et est créée avec docker et docker-compose.
           </p>
         </div>
         <div class="about-authors">
           <h2>Auteures</h2>
           <div class="grid">
             <div v-for="author in authors">
-              <a class="link link--author" :href="`https://github.com/${author}`">
+              <a
+                class="link link--author"
+                :href="`https://github.com/${author}`"
+              >
                 <div class="grid">
                   <div class="avatar"></div>
                   <div>
@@ -41,8 +45,6 @@
             </div>
           </div>
         </div>
-
-
       </div>
     </div>
   </MainLayout>
@@ -51,9 +53,7 @@
 <script lang="ts">
 import MainLayout from "@/components/layout/layout/MainLayout.vue";
 import { defineComponent } from "vue";
-import {
-  GithubIcon,
-} from "@/components/icons";
+import { GithubIcon } from "@/components/icons";
 
 export default defineComponent({
   name: "AboutView",
@@ -70,14 +70,12 @@ export default defineComponent({
 
 <style lang="scss">
 #page-about {
-
   .avatar {
     width: 70px;
     height: 70px;
     border-radius: 50%;
     background-color: var(--border-color);
   }
-
 
   .link {
     color: var(--primary-color);
@@ -115,4 +113,5 @@ export default defineComponent({
   .about-content {
     max-width: 400px;
   }
-}</style>
+}
+</style>

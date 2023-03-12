@@ -2,25 +2,31 @@
   <div id="page-profile">
     <div class="head">
       <h1 class="title title--search">
-        <span>
-          Rechercher un utilisateur
-        </span>
+        <span> Rechercher un utilisateur </span>
         <div class="search search--icon">
           <SearchIcon />
           <input type="text" v-model="searchValue" placeholder="Rechercher" />
         </div>
       </h1>
     </div>
-    <EasyDataTable :headers="headers" :items="items" :theme-color="'var(--primary-color)'" :search-value="searchValue"
-      buttons-pagination="true" 
+    <EasyDataTable
+      :headers="headers"
+      :items="items"
+      :theme-color="'var(--primary-color)'"
+      :search-value="searchValue"
+      buttons-pagination="true"
       empty-message="Aucun utilisateur trouvé"
       :rows-items="[10, 15, 20]"
       rows-per-page="5"
       rows-per-page-message="Utilisateurs par page"
-      >
+    >
       <template #item-avatar="{ avatar, pseudo }">
         <a :href="`/users/${pseudo}`">
-          <img class="avatar avatar--rounded medium" :src="avatar" :alt="pseudo" />
+          <img
+            class="avatar avatar--rounded medium"
+            :src="avatar"
+            :alt="pseudo"
+          />
         </a>
       </template>
       <template #item-pseudo="{ pseudo }">
@@ -52,10 +58,7 @@ import router from "@/router";
 import type { Header, Item } from "vue3-easy-data-table";
 import EasyDataTable from "vue3-easy-data-table";
 import type { UserInterface } from "@/interfaces/user.interface";
-import {
-  SearchIcon,
-  ExternalLinkIcon,
-} from "@/components/icons";
+import { SearchIcon, ExternalLinkIcon } from "@/components/icons";
 import { useUserStore } from "@/stores/user";
 
 export default defineComponent({
@@ -80,13 +83,14 @@ export default defineComponent({
       { text: "PSEUDO", value: "pseudo" },
       { text: "EMAIL", value: "email" },
       { text: "STATUS", value: "status", sortable: true },
-      { text: "", value: "profile" }
+      { text: "", value: "profile" },
     ] as Header[];
     const items = ref([] as Item[]);
 
-    axios.get(`${import.meta.env.VITE_APP_API_URL}/users`, {
-      withCredentials: true,
-    })
+    axios
+      .get(`${import.meta.env.VITE_APP_API_URL}/users`, {
+        withCredentials: true,
+      })
       .then((response) => {
         users.value = response.data.users;
         items.value = users.value.map((user) => ({

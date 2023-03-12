@@ -51,7 +51,10 @@ const router = createRouter({
           path: "/users/:pseudo",
           name: "user",
           meta: {
-            title: (route: { params: { pseudo: any; }; }) => `Profile de ${route.params.pseudo} - ${import.meta.env.VITE_APP_TITLE}`,
+            title: (route: { params: { pseudo: any } }) =>
+              `Profile de ${route.params.pseudo} - ${
+                import.meta.env.VITE_APP_TITLE
+              }`,
           },
           component: () => import("@/views/users/ProfileView.vue"),
         },
@@ -151,25 +154,26 @@ const router = createRouter({
 });
 
 const isAuthenticated = () => {
-  const userStore = useUserStore()
-  return userStore.isAuthenticated
-}
+  const userStore = useUserStore();
+  return userStore.isAuthenticated;
+};
 
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresAuth)) {
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
     if (!isAuthenticated()) {
       next({
-        name: 'login',
+        name: "login",
         query: { redirect: to.fullPath },
-      })
-      return
+      });
+      return;
     }
   }
 
   if (to.meta.title) {
-    document.title = typeof to.meta.title === 'function'
-      ? to.meta.title(to)
-      : `${to.meta.title} - ${import.meta.env.VITE_APP_TITLE}`;
+    document.title =
+      typeof to.meta.title === "function"
+        ? to.meta.title(to)
+        : `${to.meta.title} - ${import.meta.env.VITE_APP_TITLE}`;
   } else {
     document.title = `${import.meta.env.VITE_APP_TITLE}`;
   }

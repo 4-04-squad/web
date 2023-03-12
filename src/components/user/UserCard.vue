@@ -1,9 +1,13 @@
 <template>
   <RouterLink
     :class="`user user-${size}`"
-    :to="isCurrentUser() ? { name: 'profile' } : { name: 'user', params: { pseudo: user.pseudo } }"
+    :to="
+      isCurrentUser()
+        ? { name: 'profile' }
+        : { name: 'user', params: { pseudo: user.pseudo } }
+    "
     v-if="user"
- >
+  >
     <div :class="`user-card grid ${full}-card`">
       <div :class="`column user-card__avatar ${size}`">
         <img :src="user.avatar" :alt="user.pseudo" />
@@ -170,15 +174,15 @@ export default defineComponent({
 
 .status {
   &.offline {
-      color: var(--danger-color);
-    }
+    color: var(--danger-color);
+  }
 
-    &.playing {
-      color: var(--primary-color);
-    }
+  &.playing {
+    color: var(--primary-color);
+  }
 
-    &.online {
-      color: var(--success-color);
-    }
+  &.online {
+    color: var(--success-color);
+  }
 }
 </style>

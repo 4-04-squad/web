@@ -1,3 +1,6 @@
+import type { ChatInterface } from "./chat.interface";
+import type { GameInterface } from "./game.interface";
+
 export interface UserInterface {
   id: string;
   fortyTwoId?: number;
@@ -20,17 +23,63 @@ export interface UserInterface {
   blocked: UserInterface[];
 }
 
-export type UserStatus = "ONLINE" | "OFFLINE" | "AWAY";
-export type UserRole = "USER" | "ADMIN";
-
 export interface UserChat {
-  // define properties of UserChat here
+  id: string;
+  status: UserChatStatus;
+  permission: UserChatPermission;
+  chat: ChatInterface;
+  chatId: string;
+  user: UserInterface;
+  userId: string;
 }
 
 export interface UserGame {
-  // define properties of UserGame here
+  id: string;
+  status?: UserGameStatus;
+  score: number;
+  game: GameInterface;
+  gameId: string;
+  user: UserInterface;
+  userId: string;
 }
 
 export interface Friendship {
-  // define properties of Friendship here
+  id: string;
+  accepted: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+  user: UserInterface;
+  userId: string;
+  friend: UserInterface;
+  friendId: string;
+}
+
+enum UserStatus {
+  ONLINE = "ONLINE",
+  OFFLINE = "OFFLINE",
+  PLAYING = "PLAYING",
+}
+
+enum UserRole {
+  ADMIN = "ADMIN",
+  USER = "USER",
+}
+
+enum UserChatStatus {
+  OWNER = "OWNER",
+  ADMIN = "ADMIN",
+  MEMBER = "MEMBER",
+}
+
+enum UserChatPermission {
+  BANNED = "BANNED",
+  MUTED = "MUTED",
+  KICKED = "KICKED",
+  COMPLIANT = "COMPLIANT",
+}
+
+enum UserGameStatus {
+  WINNER = "WINNER",
+  LOSER = "LOSER",
+  DRAW = "DRAW",
 }

@@ -16,7 +16,7 @@
 import { defineComponent } from "vue";
 import { useUserStore } from "@/stores/user";
 import LoginButton from "@/components/ui/button/LoginButton.vue";
-import {QDIcon} from "@/components/icons";
+import { QDIcon } from "@/components/icons";
 
 export default defineComponent({
   name: "Sidebar",
@@ -25,7 +25,6 @@ export default defineComponent({
     QDIcon,
   },
   setup() {
-  
     const userStore = useUserStore();
     return {
       userStore,

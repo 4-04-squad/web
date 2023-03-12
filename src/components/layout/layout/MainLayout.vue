@@ -3,9 +3,7 @@
     <Header />
     <slot></slot>
     <Sidebar>
-      <UsersList
-        title="Utilisateurs en ligne"
-      />
+      <UsersList title="Utilisateurs en ligne" />
     </Sidebar>
   </div>
 </template>
@@ -22,7 +20,7 @@ export default defineComponent({
     Header,
     Sidebar,
     UsersList,
-},
+  },
   props: {
     title: {
       type: String,

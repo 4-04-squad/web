@@ -23,7 +23,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.page-user{
+.page-user {
   .head {
     .user-card {
       position: absolute;
@@ -33,7 +33,7 @@ export default defineComponent({
       @media screen and (max-width: 768px) {
         left: 20px;
       }
-      
+
       &__avatar {
         img {
           border: 4px solid var(--secondary-color);
@@ -46,7 +46,7 @@ export default defineComponent({
       }
 
       &__status {
-        @media screen and (max-width: 768px) {    
+        @media screen and (max-width: 768px) {
           right: 20px;
           bottom: 20px;
         }
