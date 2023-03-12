@@ -66,7 +66,7 @@ import { SearchIcon, ExternalLinkIcon, RemoveFriendIcon } from "@/components/ico
 import UserCard from "@/components/user/UserCard.vue";
 
 export default defineComponent({
-  name: "FriendsView",
+  name: "FriendsRequestsSentView",
   components: {
     EasyDataTable,
     SearchIcon,

@@ -131,6 +131,22 @@ const router = createRouter({
           },
           component: () => import("@/views/friends/FriendsView.vue"),
         },
+        {
+          path: "/friends/requests",
+          name: "friends-requests",
+          meta: {
+            title: "Demandes d'amis",
+          },
+          component: () => import("@/views/friends/FriendsRequestsView.vue"),
+        },
+        {
+          path: "/friends/sent",
+          name: "friends-sent",
+          meta: {
+            title: "Demandes d'amis envoyées",
+          },
+          component: () => import("@/views/friends/FriendsRequestsSentView.vue"),
+        },
       ],
     },
     {
