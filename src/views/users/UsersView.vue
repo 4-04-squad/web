@@ -42,8 +42,8 @@
       </template>
       <template #item-profile="{ profile }">
         <a :href="`/users/${profile}`">
-          <button class="btn btn--icon">
-            <ExternalLinkIcon /> voir le profil
+          <button class="btn btn--icon only-icon">
+            <ExternalLinkIcon />
           </button>
         </a>
       </template>
@@ -59,7 +59,6 @@ import type { Header, Item } from "vue3-easy-data-table";
 import EasyDataTable from "vue3-easy-data-table";
 import type { UserInterface } from "@/interfaces/user.interface";
 import { SearchIcon, ExternalLinkIcon } from "@/components/icons";
-import { useUserStore } from "@/stores/user";
 
 export default defineComponent({
   name: "UsersView",
@@ -67,12 +66,6 @@ export default defineComponent({
     EasyDataTable,
     SearchIcon,
     ExternalLinkIcon,
-  },
-  beforeCreate() {
-    const userStore = useUserStore();
-    if (!userStore.user) {
-      router.push({ path: "/login" });
-    }
   },
   setup() {
     const searchValue = ref("");

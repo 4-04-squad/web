@@ -14,6 +14,8 @@ import SearchIcon from "./svg/SearchIcon.vue";
 import ExternalLinkIcon from "./svg/ExternalLinkIcon.vue";
 import GithubIcon from "./svg/GithubIcon.vue";
 import MenuIcon from "./svg/MenuIcon.vue";
+import RemoveFriendIcon from "./svg/RemoveFriendIcon.vue";
+import AddFriendIcon from "./svg/AddFriendIcon.vue";
 
 export {
   HomeIcon,
@@ -32,4 +34,6 @@ export {
   ExternalLinkIcon,
   GithubIcon,
   MenuIcon,
+  RemoveFriendIcon,
+  AddFriendIcon,
 };

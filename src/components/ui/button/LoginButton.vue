@@ -28,7 +28,7 @@ export default defineComponent({
   },
   methods: {
     async login() {
-      const loginUrl = `${import.meta.env.VITE_APP_API_URL}/users/login`;
+      const loginUrl = `${import.meta.env.VITE_APP_API_URL}/users/me`;
       const token = import.meta.env.VITE_APP_FORTY_TWO_CLIENT_ID;
       const callbackUrl = `${
         import.meta.env.VITE_APP_API_URL

@@ -76,6 +76,8 @@ export default defineComponent({
 
 <style lang="scss">
 .user-card {
+  grid-gap: 0;
+  
   &.full-card {
     grid-template-columns: 1fr 2fr;
     align-items: center;
