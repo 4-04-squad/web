@@ -115,6 +115,41 @@ const router = createRouter({
       ],
     },
     {
+      path: "/friends",
+      name: "friends",
+      meta: {
+        title: "Amis",
+        requiresAuth: true,
+      },
+      component: () => import("@/views/friends/FriendsLayout.vue"),
+      children: [
+        {
+          path: "/friends/all",
+          name: "friends-all",
+          meta: {
+            title: "Tous mes amis",
+          },
+          component: () => import("@/views/friends/FriendsView.vue"),
+        },
+        {
+          path: "/friends/requests",
+          name: "friends-requests",
+          meta: {
+            title: "Demandes d'amis",
+          },
+          component: () => import("@/views/friends/FriendsRequestsView.vue"),
+        },
+        {
+          path: "/friends/sent",
+          name: "friends-sent",
+          meta: {
+            title: "Demandes d'amis envoyées",
+          },
+          component: () => import("@/views/friends/FriendsRequestsSentView.vue"),
+        },
+      ],
+    },
+    {
       path: "/games",
       name: "games",
       meta: {
